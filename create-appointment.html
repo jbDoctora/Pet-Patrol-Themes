@@ -8,104 +8,199 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://kit.fontawesome.com/ceb9fb7eba.js" crossorigin="anonymous"></script>
 <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<!-- GOOGLE FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="images/apple-touch-icon-72x72.png" />
 
-    <title>Pet Patrol - Home</title>
+<!-- Tailwind Forms -->
+<link href="https://unpkg.com/@tailwindcss/forms@0.2.1/dist/forms.min.css" rel="stylesheet">
 </head>
 <body>
-<!-- NavBar -->
-<div class="navbar bg-base-100">
-  <div class="flex-1 bg-fixed">
-    <img style=" width: 80px; height: 80px; mix-blend-mode: multiply;" src="images/pet-patrol.png"><span class="font-semibold text-xl tracking-wide" style="font-family: Luckiest Guy">PET PATROL</span></img>
-  </div>
-  <div>
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="flex-1 bg-fixed">
+      <img style="aspect-ratio: 1/1; object-fit: contain; mix-blend-mode: color-burn; margin-left: 4px; margin-right: 6px;" src="images/apple-touch-icon-76x76.png"><span class="font-semibold text-xl tracking-wide" style="font-family: 'Fredoka One', cursive;">PET PATROL</span></img>
     </div>
-    <button class="btn btn-outline mx-1 ">Sign in</button>
-    <button class="btn btn-primary mx-2">Sign up</button>
+    <div>
+      <div class="dropdown dropdown-end" x-data="{open : false}">
+        <div class="indicator">
+          <span class="indicator-item badge badge-primary">18</span>
+          <button tabindex="0" class="fa-solid fa-bell fa-xl m-3" @click="open = !open"></button>
+        </div>
+        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52" x-show="open" @click.outside="open = false">
+          <li><a href="">jagssdjagsdkjas</a></li>
+          <li><a href="">iuywieyiuqwyeiuqw</a></li>
+        </ul>
+      </div>
+
+          <div class="avatar dropdown dropdown-bottom dropdown-end dropdown-hover">
+              <div tabindex="0" class="w-9 h-9 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mr-4 ml-8">
+                <img src="/images/avatar/Avatar-9.png" />
+              </div>
+              <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                  <li><a href="">Profile</a></li>
+                  <li><a href="">Logout</a></li>
+              </ul>
+            </div>
+            <div class="mr-3">
+              <p class="font-medium">Juan Dela Cruz</p>
+            </div>
+      </div>
+      <!-- <button class="btn btn-outline mx-1 "><a href="login.html">Sign in</a></button>
+      <button class="btn btn-primary mx-2"><a href="registration.html"> Sign up</a></button> -->
   </div>
 
+    
 <main>
-  <div class="mx-auto max-w-screen-xl px-4">
-<progress class="progress progress-accent w-56" value="0" max="100"></progress>
-<progress class="progress progress-accent w-56" value="10" max="100"></progress>
-<progress class="progress progress-accent w-56" value="40" max="100"></progress>
-<progress class="progress progress-accent w-56" value="70" max="100"></progress>
-<progress class="progress progress-accent w-56" value="100" max="100"></progress>
-  </div>
+  
+<div class="mx-auto max-w-screen-xl h-screen py-10 sm:px-6 lg:px-8" x-data="{step: 1, percentComplete : 0}">
+  
+  <div class="flex justify-center items-center mx-auto max-w-screen-xl px-4">
+    <progress class="progress progress-primary w-56" value="0" :value="percentComplete" max="100"></progress>
+      </div>
 
-  <div class="mx-auto max-w-screen-xl px-4 py-10 sm:px-6 lg:px-8">
-    <form action="" class="mt-2 mb-0  space-y-4 rounded-lg p-8 shadow-2xl">
-      
-        <fieldset>
-          <legend class="sr-only">Countries</legend>
-
-          <div class="flex items-center mb-4">
-            <label for="" class="block ml-2 text-2xl font-medium ">
+    <div x-show="step === 1">
+      <form class="mt-2 mb-0  space-y-4 rounded-lg p-8 shadow-2xl">
+        <div class="flex items-center mb-4">
+            <label for="" class="block ml-2 text-2xl font-bold">
               How many pets would you like trained?
             </label>
           </div>
 
+        <div class="flex items-center mb-4 bg-slate-300 p-5">
+            <input type="radio" name="radio-2" class="radio" />
+            <label for="" class="ml-2 text-lg font-medium ">Bitch</label>
+        </div>
+
+        <div class="flex items-center mb-4 bg-slate-300 p-5">
+            <input type="radio" name="radio-2" class="radio" />
+            <label for="" class="ml-2 text-lg font-medium ">Fuck</label>
+        </div>
+
+        <div class="flex justify-center items-center">
+            <button class="btn btn-primary mx-2" @click.prevent="step++, percentComplete = 33">Next</button>
+          </div>
+
+      </form>
+    </div>
+    <div x-show="step === 2">
+        <form class="mt-2 mb-0  space-y-4 rounded-lg p-8 shadow-2xl">
+            <div class="flex items-center mb-4">
+                <label for="" class="block ml-2 text-2xl font-bold">
+                  How many pets would you like trained?
+                </label>
+              </div>
+    
+            <div class="flex items-center mb-4 bg-slate-300 p-5">
+                <input type="radio" name="radio-2" class="radio" />
+                <label for="" class="ml-2 text-lg font-medium ">Taena niyo</label>
+            </div>
+    
+            <div class="flex items-center mb-4 bg-slate-300 p-5">
+                <input type="radio" name="radio-2" class="radio" />
+                <label for="" class="ml-2 text-lg font-medium ">depota</label>
+            </div>
+
+            <div class="flex items-center mb-4 bg-slate-300 p-5">
+              <input type="radio" name="radio-2" class="radio" />
+              <label for="" class="ml-2 text-lg font-medium ">depota</label>
+          </div>
+  
+    
+            <div class="flex justify-center items-center">
+                <button class="btn btn-secondary mx-2" @click.prevent="step--, percentComplete = 0">Back</button>
+                <button class="btn btn-primary mx-2" @click.prevent="step++, percentComplete = 66">Next</button>
+              </div>
+    
+          </form>
+    </div>
+    <div x-show="step === 3">
+        <form class="mt-2 mb-0  space-y-4 rounded-lg p-8 shadow-2xl">
+            <div class="flex items-center mb-4">
+                <label for="" class="block ml-2 text-2xl font-bold">
+                  How many pets would you like trained?
+                </label>
+              </div>
+    
+            <div class="flex items-center mb-4 bg-slate-300 p-5">
+                <input type="radio" name="radio-2" class="radio" />
+                <label for="" class="ml-2 text-lg font-medium ">love you</label>
+            </div>
+    
+            <div class="flex items-center mb-4 bg-slate-300 p-5">
+                <input type="radio" name="radio-2" class="radio" />
+                <label for="" class="ml-2 text-lg font-medium ">yieee</label>
+            </div>
+
+            <div class="flex items-center mb-4 bg-slate-300 p-5">
+              <input type="radio" name="radio-2" class="radio" />
+              <label for="" class="ml-2 text-lg font-medium ">depota</label>
+          </div>
+
+          <div class="flex items-center mb-4 bg-slate-300 p-5">
+            <input type="radio" name="radio-2" class="radio" />
+            <label for="" class="ml-2 text-lg font-medium ">depota</label>
+        </div>
+
+    
+            <div class="flex justify-center items-center">
+                <button class="btn btn-secondary mx-2" @click.prevent="step--, percentComplete = 66">Back</button>
+                <button class="btn btn-primary mx-2" @click.prevent="step++, percentComplete = 100">Next</button>
+              </div>
+    
+          </form>
+    </div>
+    <div x-show="step === 4">
+      <form x-on:submit.prevent class="mt-2 mb-0  space-y-4 rounded-lg p-8 shadow-2xl">
           <div class="flex items-center mb-4">
-            <input id="country-option-1" type="radio" name="countries" value="USA" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" checked>
-            <label for="country-option-1" class="block ml-2 text-sm font-medium ">
-              Sample 0
-            </label>
+              <label for="" class="block ml-2 text-2xl font-bold">
+                Receipt
+              </label>
+            </div>
+  
+          <div class="flex items-center mb-4 bg-slate-300 p-5">
+           
+              <label for="" class="ml-2 text-lg font-medium ">OK</label>
           </div>
-        
-          <div class="flex items-center mb-4">
-            <input id="country-option-2" type="radio" name="countries" value="Germany" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
-            <label for="country-option-2" class="block ml-2 text-sm font-medium">
-              Sample 1
-            </label>
+  
+          <div class="flex items-center mb-4 bg-slate-300 p-5">
+              
+              <label for="" class="ml-2 text-lg font-medium ">Cancel</label>
           </div>
-        
-          <div class="flex items-center mb-4">
-            <input id="country-option-3" type="radio" name="countries" value="Spain" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600">
-            <label for="country-option-3" class="block ml-2 text-sm font-medium">
-              Sample 2
-            </label>
-          </div>
-        
-          <div class="flex items-center mb-4">
-            <input id="country-option-4" type="radio" name="countries" value="United Kingdom" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring:blue-300 dark:focus-ring-blue-600 dark:bg-gray-700 dark:border-gray-600">
-            <label for="country-option-4" class="block ml-2 text-sm font-medium">
-              Sample 3
-            </label>
-          </div>
-        
-          <div class="flex items-center">
-            <input id="option-disabled" type="radio" name="countries" value="China" class="w-4 h-4 border-gray-200 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600" disabled>
-            <label for="option-disabled" class="block ml-2 text-sm font-medium text-gray-300 dark:text-gray-700">
-              Sample 4 (disabled)
-            </label>
-          </div>
-        </fieldset>
-      
-    </form>
+
+          <div class="flex justify-center items-center">
+              <button class="btn btn-primary mx-2">Confirm</button>
+            </div>
+  
+        </form>
   </div>
+</div>
 </main>
 
-<!-- FOOTER -->
- <footer class="footer p-10 bg-neutral text-neutral-content">
-  <div>
-    <span class="footer-title">Services</span> 
-    <a class="link link-hover">Branding</a>
-    <a class="link link-hover">Design</a>
-    <a class="link link-hover">Marketing</a>
-    <a class="link link-hover">Advertisement</a>
-  </div> 
-  <div>
-    <span class="footer-title">Company</span> 
-    <a class="link link-hover">About us</a>
-    <a class="link link-hover">Contact</a>
-    <a class="link link-hover">Jobs</a>
-    <a class="link link-hover">Press kit</a>
-  </div> 
-  <div>
-    <span class="footer-title">Legal</span> 
-    <a class="link link-hover">Terms of use</a>
-    <a class="link link-hover">Privacy policy</a>
-    <a class="link link-hover">Cookie policy</a>
-  </div>
-</footer>
-</body>
+
+<footer class="footer p-10 bg-neutral text-neutral-content">
+    <div>
+      <span class="footer-title">Services</span> 
+      <a class="link link-hover">Branding</a>
+      <a class="link link-hover">Design</a>
+      <a class="link link-hover">Marketing</a>
+      <a class="link link-hover">Advertisement</a>
+    </div> 
+    <div>
+      <span class="footer-title">Company</span> 
+      <a class="link link-hover">About us</a>
+      <a class="link link-hover">Contact</a>
+      <a class="link link-hover">Jobs</a>
+      <a class="link link-hover">Press kit</a>
+    </div> 
+    <div>
+      <span class="footer-title">Legal</span> 
+      <a class="link link-hover">Terms of use</a>
+      <a class="link link-hover">Privacy policy</a>
+      <a class="link link-hover">Cookie policy</a>
+    </div>
+  </footer>
+  </body>
 </html>

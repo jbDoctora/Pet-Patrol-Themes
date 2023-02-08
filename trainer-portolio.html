@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Pet Trainer Portfolio Form</title>
+  </head>
+  <body class="bg-gray-100">
+    <header class="bg-white p-4 shadow-md">
+      <div class="container mx-auto">
+        <h1 class="text-xl font-bold">Pet Trainer Portfolio Form</h1>
+      </div>
+    </header>
+    <section class="container mx-auto py-10">
+      <form action="#" method="post">
+        <h2 class="text-2xl font-bold mb-6">About Me</h2>
+        <textarea class="bg-white p-4 shadow-md rounded-lg w-full mb-6" name="about_me" rows="5"></textarea>
+        <h2 class="text-2xl font-bold mb-6">Services</h2>
+        <textarea class="bg-white p-4 shadow-md rounded-lg w-full mb-6" name="services" rows="5"></textarea>
+        <h2 class="text-2xl font-bold mb-6">Certificates</h2>
+        <input type="file" class="bg-white p-4 shadow-md rounded-lg w-full mb-6" name="certificates" multiple>
+        <h2 class="text-2xl font-bold mb-6">Pet Training Experience</h2>
+        <textarea class="bg-white p-4 shadow-md rounded-lg w-full mb-6" name="experience" rows="5"></textarea>
+        <h2 class="text-2xl font-bold mb-6">Journey Photos</h2>
+        <input type="file" class="bg-white p-4 shadow-md rounded-lg w-full mb-6" name="journey_photos" multiple>
+        <h2 class="text-2xl font-bold mb-6">Profile Photo</h2>
+        <input type="file" class="bg-white p-4 shadow-md rounded-lg w-full mb-6" name="profile_photo">
+        <div class="text-center mt-6">
+          <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded-lg">
+            Submit
+          </button>
+        </div>
+      </form>
+    </section>
+  </body>
+</html>

@@ -48,14 +48,16 @@
               <p class="font-medium">Juan Dela Cruz</p>
             </div>
       </div>
-      <!-- <button class="btn btn-outline mx-1 "><a href="login.html">Sign in</a></button>
-      <button class="btn btn-primary mx-2"><a href="registration.html"> Sign up</a></button> -->
+      <button class="btn btn-outline mx-1 "><a href="login.html">Sign in</a></button>
+      <button class="btn btn-primary mx-2"><a href="registration.html"> Sign up</a></button>
   </div>
 
+
     
-<main>
+<main class="mb-6">
   
-<div class="mx-auto max-w-screen-xl h-screen py-10 sm:px-6 lg:px-8" x-data="{step: 1, percentComplete : 0}">
+<div class="mx-auto max-w-screen-sm h-full py-10 sm:px-6 lg:px-8 mb-6" x-data="
+{step: 1, percentComplete : 0, type: '', breed: '', age: '', size: '', vaccinated: '', course: [], info: '', sessions: '', date: '', location: '', date: '', time: ''}">
   
   <div class="flex justify-center items-center mx-auto max-w-screen-xl px-4">
     <progress class="progress progress-primary w-56" value="0" :value="percentComplete" max="100"></progress>
@@ -64,23 +66,33 @@
     <div x-show="step === 1">
       <form class="mt-2 mb-0  space-y-4 rounded-lg p-8 shadow-2xl">
         <div class="flex items-center mb-4">
-            <label for="" class="block ml-2 text-2xl font-bold">
-              How many pets would you like trained?
+            <label for="" class="block ml-2 text-lg font-bold">
+              What type of pet it is?
             </label>
           </div>
-
+          
         <div class="flex items-center mb-4 bg-slate-300 p-5">
-            <input type="radio" name="radio-2" class="radio" />
-            <label for="" class="ml-2 text-lg font-medium ">Bitch</label>
+            <input type="radio" name="radio-1" class="radio" value="Dog" x-model="type"/>
+            <label for="" class="ml-2 text-sm font-medium ">Dog</label>
         </div>
 
         <div class="flex items-center mb-4 bg-slate-300 p-5">
-            <input type="radio" name="radio-2" class="radio" />
-            <label for="" class="ml-2 text-lg font-medium ">Fuck</label>
+            <input type="radio" name="radio-1" class="radio" value="Cat" x-model="type"/>
+            <label for="" class="ml-2 text-sm font-medium ">Cat</label>
         </div>
 
+        <div class="flex items-center mb-4 bg-slate-300 p-5">
+          <input type="radio" name="radio-1" class="radio" value="Hamster" x-model="type"/>
+          <label for="" class="ml-2 text-sm font-medium ">Hamster</label>
+      </div>
+
+      <div class="flex items-center mb-4 bg-slate-300 p-5">
+        <input type="radio" name="radio-1" class="radio" value="Parrot" x-model="type"/>
+        <label for="" class="ml-2 text-sm font-medium ">Parrot</label>
+    </div>
+  
         <div class="flex justify-center items-center">
-            <button class="btn btn-primary mx-2" @click.prevent="step++, percentComplete = 33">Next</button>
+            <button class="btn btn-primary mx-2" @click.prevent="step++, percentComplete = 10">Next</button>
           </div>
 
       </form>
@@ -88,30 +100,18 @@
     <div x-show="step === 2">
         <form class="mt-2 mb-0  space-y-4 rounded-lg p-8 shadow-2xl">
             <div class="flex items-center mb-4">
-                <label for="" class="block ml-2 text-2xl font-bold">
-                  How many pets would you like trained?
+                <label for="" class="block ml-2 text-lg font-bold">
+                  What breed is it?(optional)
                 </label>
               </div>
     
-            <div class="flex items-center mb-4 bg-slate-300 p-5">
-                <input type="radio" name="radio-2" class="radio" />
-                <label for="" class="ml-2 text-lg font-medium ">Taena niyo</label>
+            <div class="flex items-center mb-4 bg-slate-300 p-5 justify-center">
+                <input type="text" placeholder="Ex. Shitzu, Pomeranian" name="breed" class="input w-full max-w-xs rounded" x-model="breed"/>
             </div>
-    
-            <div class="flex items-center mb-4 bg-slate-300 p-5">
-                <input type="radio" name="radio-2" class="radio" />
-                <label for="" class="ml-2 text-lg font-medium ">depota</label>
-            </div>
-
-            <div class="flex items-center mb-4 bg-slate-300 p-5">
-              <input type="radio" name="radio-2" class="radio" />
-              <label for="" class="ml-2 text-lg font-medium ">depota</label>
-          </div>
-  
     
             <div class="flex justify-center items-center">
                 <button class="btn btn-secondary mx-2" @click.prevent="step--, percentComplete = 0">Back</button>
-                <button class="btn btn-primary mx-2" @click.prevent="step++, percentComplete = 66">Next</button>
+                <button class="btn btn-primary mx-2" @click.prevent="step++, percentComplete = 20">Next</button>
               </div>
     
           </form>
@@ -119,57 +119,299 @@
     <div x-show="step === 3">
         <form class="mt-2 mb-0  space-y-4 rounded-lg p-8 shadow-2xl">
             <div class="flex items-center mb-4">
-                <label for="" class="block ml-2 text-2xl font-bold">
-                  How many pets would you like trained?
+                <label for="" class="block ml-2 text-lg font-bold">
+                  How old is your pet?
                 </label>
               </div>
     
             <div class="flex items-center mb-4 bg-slate-300 p-5">
-                <input type="radio" name="radio-2" class="radio" />
-                <label for="" class="ml-2 text-lg font-medium ">love you</label>
+                <input type="radio" name="radio-3" class="radio" value="0-6 months old" x-model="age"/>
+                <label for="" class="ml-2 text-sm font-medium ">0-6 months old</label>
             </div>
     
             <div class="flex items-center mb-4 bg-slate-300 p-5">
-                <input type="radio" name="radio-2" class="radio" />
-                <label for="" class="ml-2 text-lg font-medium ">yieee</label>
+                <input type="radio" name="radio-3" class="radio" value="6-12 months old" x-model="age"/>
+                <label for="" class="ml-2 text-sm font-medium ">6-12 months old</label>
             </div>
 
             <div class="flex items-center mb-4 bg-slate-300 p-5">
-              <input type="radio" name="radio-2" class="radio" />
-              <label for="" class="ml-2 text-lg font-medium ">depota</label>
+              <input type="radio" name="radio-3" class="radio"  value="1-2 years old" x-model="age"/>
+              <label for="" class="ml-2 text-sm font-medium ">1-2 years old</label>
           </div>
 
           <div class="flex items-center mb-4 bg-slate-300 p-5">
-            <input type="radio" name="radio-2" class="radio" />
-            <label for="" class="ml-2 text-lg font-medium ">depota</label>
+            <input type="radio" name="radio-3" class="radio" value="2-10 years old" x-model="age"/>
+            <label for="" class="ml-2 text-sm font-medium ">2-10 years old</label>
         </div>
+
+        <div class="flex items-center mb-4 bg-slate-300 p-5">
+          <input type="radio" name="radio-3" class="radio" value="10 years old" x-model="age"/>
+          <label for="" class="ml-2 text-sm font-medium ">10 years or older</label>
+      </div>
 
     
             <div class="flex justify-center items-center">
-                <button class="btn btn-secondary mx-2" @click.prevent="step--, percentComplete = 66">Back</button>
-                <button class="btn btn-primary mx-2" @click.prevent="step++, percentComplete = 100">Next</button>
+                <button class="btn btn-secondary mx-2" @click.prevent="step--, percentComplete = 10">Back</button>
+                <button class="btn btn-primary mx-2" @click.prevent="step++, percentComplete = 30">Next</button>
               </div>
     
           </form>
     </div>
     <div x-show="step === 4">
-      <form x-on:submit.prevent class="mt-2 mb-0  space-y-4 rounded-lg p-8 shadow-2xl">
+      <form class="mt-2 mb-0  space-y-4 rounded-lg p-8 shadow-2xl">
           <div class="flex items-center mb-4">
-              <label for="" class="block ml-2 text-2xl font-bold">
-                Receipt
+              <label for="" class="block ml-2 text-lg font-bold">
+                What is the size of your pet?
               </label>
             </div>
   
           <div class="flex items-center mb-4 bg-slate-300 p-5">
-           
-              <label for="" class="ml-2 text-lg font-medium ">OK</label>
+              <input type="radio" name="radio-4" class="radio" value="1-5 kg" x-model="size"/>
+              <label for="" class="ml-2 text-sm font-medium ">1-5 kg</label>
           </div>
   
           <div class="flex items-center mb-4 bg-slate-300 p-5">
-              
-              <label for="" class="ml-2 text-lg font-medium ">Cancel</label>
+              <input type="radio" name="radio-4" class="radio" value="5-10 kg" x-model="size"/>
+              <label for="" class="ml-2 text-sm font-medium ">5-10 kg</label>
           </div>
 
+          <div class="flex items-center mb-4 bg-slate-300 p-5">
+            <input type="radio" name="radio-4" class="radio" value="10-20 kg" x-model="size"/>
+            <label for="" class="ml-2 text-sm font-medium ">10-20 kg</label>
+        </div>
+
+        <div class="flex items-center mb-4 bg-slate-300 p-5">
+          <input type="radio" name="radio-4" class="radio" value="20-40 kg" x-model="size"/>
+          <label for="" class="ml-2 text-sm font-medium ">20-40kg</label>
+      </div>
+
+      <div class="flex items-center mb-4 bg-slate-300 p-5">
+        <input type="radio" name="radio-4" class="radio" value="40+ kg" x-model="size"/>
+        <label for="" class="ml-2 text-sm font-medium ">40+ kg</label>
+    </div>
+
+  
+          <div class="flex justify-center items-center">
+              <button class="btn btn-secondary mx-2" @click.prevent="step--, percentComplete = 20">Back</button>
+              <button class="btn btn-primary mx-2" @click.prevent="step++, percentComplete = 40">Next</button>
+            </div>
+  
+        </form>
+  </div>
+  <div x-show="step === 5">
+    <form class="mt-2 mb-0  space-y-4 rounded-lg p-8 shadow-2xl">
+        <div class="flex items-center mb-4">
+            <label for="" class="block ml-2 text-lg font-bold">
+              Is your pet vaccinated
+            </label>
+          </div>
+
+        <div class="flex items-center mb-4 bg-slate-300 p-5">
+            <input type="radio" name="radio-5" class="radio" value="Yes" x-model="vaccinated"/>
+            <label for="" class="ml-2 text-sm font-medium ">Yes</label>
+        </div>
+
+        <div class="flex items-center mb-4 bg-slate-300 p-5">
+            <input type="radio" name="radio-5" class="radio" value="No" x-model="vaccinated"/>
+            <label for="" class="ml-2 text-sm font-medium ">No</label>
+        </div>
+
+        <div class="flex justify-center items-center">
+            <button class="btn btn-secondary mx-2" @click.prevent="step--, percentComplete = 30">Back</button>
+            <button class="btn btn-primary mx-2" @click.prevent="step++, percentComplete = 50">Next</button>
+          </div>
+
+      </form>
+</div>
+<div x-show="step === 6">
+  <form class="mt-2 mb-0  space-y-4 rounded-lg p-3 shadow-2xl">
+      <div class="flex items-center mb-4">
+          <label for="" class="block ml-2 text-lg font-bold">
+            Which pet training course are you interested in?
+          </label>
+        </div>
+
+      <div class="flex items-center mb-4 bg-slate-300 p-5">
+          <input type="checkbox"  class="checkbox checkbox-md" value="Potty Training" x-model="course"/>
+          <label for="" class="ml-2 text-sm font-medium ">Potty Training</label>
+      </div>
+
+      <div class="flex items-center mb-4 bg-slate-300 p-5">
+          <input type="checkbox" class="checkbox checkbox-md" value="Obedience Training" x-model="course">
+          <label for="" class="ml-2 text-sm font-medium ">Obedience Training</label>
+      </div>
+
+      <div class="flex items-center mb-4 bg-slate-300 p-5">
+        <input type="checkbox" class="checkbox checkbox-md" value="Behavioral Training" x-model="course"/>
+        <label for="" class="ml-2 text-sm font-medium ">Behavioral Training</label>
+      </div>
+
+    <div class="flex items-center mb-4 bg-slate-300 p-5">
+      <input type="checkbox" class="checkbox checkbox-md" value="Agility Training" x-model="course"/>
+      <label for="" class="ml-2 text-sm font-medium ">Agility Training</label>
+     </div>
+
+     <div class="flex items-center mb-4 bg-slate-300 p-5">
+      <input type="checkbox" class="checkbox checkbox-md" value="Tricks Training" x-model="course"/>
+      <label for="" class="ml-2 text-sm font-medium ">Tricks Training</label>
+     </div>
+
+     <div class="flex items-center mb-4 bg-slate-300 p-5">
+      <input type="checkbox" class="checkbox checkbox-md" value="Theraphy" x-model="course"/>
+      <label for="" class="ml-2 text-sm font-medium ">Theraphy</label>
+     </div>
+
+      <div class="flex justify-center items-center">
+          <button class="btn btn-secondary mx-2" @click.prevent="step--, percentComplete = 40">Back</button>
+          <button class="btn btn-primary mx-2" @click.prevent="step++, percentComplete = 60">Next</button>
+        </div>
+
+    </form>
+</div>
+<div x-show="step === 7">
+  <form class="mt-2 mb-0  space-y-4 rounded-lg p-8 shadow-2xl">
+      <div class="flex items-center mb-4">
+          <label for="" class="block ml-2 text-lg font-bold">
+            Anything else the trainer will need to know?(optional)
+          </label>
+        </div>
+
+      <div class="flex items-center mb-4 bg-slate-300 p-5 justify-center">
+          <textarea placeholder="(optional)" type="text" name="petInformation" class="textarea textarea-bordered textarea-lg w-full max-w-xs" x-model="info"></textarea>
+      </div>
+
+      <div class="flex justify-center items-center">
+          <button class="btn btn-secondary mx-2" @click.prevent="step--, percentComplete = 50">Back</button>
+          <button class="btn btn-primary mx-2" @click.prevent="step++, percentComplete = 70">Next</button>
+        </div>
+
+    </form>
+</div>
+<div x-show="step === 8">
+  <form class="mt-2 mb-0  space-y-4 rounded-lg p-8 shadow-2xl">
+      <div class="flex items-center mb-4">
+          <label for="" class="block ml-2 text-lg font-bold">
+            Which pet training course are you interested in?
+          </label>
+        </div>
+
+      <div class="flex items-center mb-4 bg-slate-300 p-5">
+          <input type="radio" name="radio-8" class="radio" value="Weekdays mornings" x-model="sessions"/>
+          <label for="" class="ml-2 text-sm font-medium ">Weekdays mornings</label>
+      </div>
+
+      <div class="flex items-center mb-4 bg-slate-300 p-5">
+          <input type="radio" name="radio-8" class="radio" value="Weekdays afternoon" x-model="sessions"/>
+          <label for="" class="ml-2 text-sm font-medium ">Weekdays afternoon</label>
+      </div>
+
+      <div class="flex items-center mb-4 bg-slate-300 p-5">
+        <input type="radio" name="radio-8" class="radio" value="Saturday/Sunday" x-model="sessions"/>
+        <label for="" class="ml-2 text-sm font-medium ">Saturday/Sunday</label>
+      </div>
+
+      <div class="flex justify-center items-center">
+          <button class="btn btn-secondary mx-2" @click.prevent="step--, percentComplete = 60">Back</button>
+          <button class="btn btn-primary mx-2" @click.prevent="step++, percentComplete = 80">Next</button>
+        </div>
+
+    </form>
+</div>
+
+<div x-show="step === 9">
+  <form class="mt-2 mb-0  space-y-4 rounded-lg p-8 shadow-2xl">
+      <div class="flex items-center mb-4">
+          <label for="" class="block ml-2 text-lg font-bold">
+            Pick a preferred month to start training.
+          </label>
+        </div>
+
+        <div class="justify-center">
+          <input type="date" class="form-input" x-model="date">
+          <input type="time" class="form-input" x-model="time">
+        </div>
+
+      <div class="flex justify-center items-center">
+          <button class="btn btn-secondary mx-2" @click.prevent="step--, percentComplete = 70">Back</button>
+          <button class="btn btn-primary mx-2" @click.prevent="step++, percentComplete = 90">Next</button>
+        </div>
+
+    </form>
+</div>
+
+<div x-show="step === 10">
+  <form class="mt-2 mb-0  space-y-4 rounded-lg p-8 shadow-2xl">
+      <div class="flex items-center mb-4">
+          <label for="" class="block ml-2 text-lg font-bold">
+            Which location would you prefer to train?
+          </label>
+        </div>
+
+      <div class="flex items-center mb-4 bg-slate-300 p-5">
+          <input type="radio" name="radio-10" class="radio" value="At home" x-model="location"/>
+          <label for="" class="ml-2 text-sm font-medium ">At home</label>
+      </div>
+
+      <div class="flex items-center mb-4 bg-slate-300 p-5">
+          <input type="radio" name="radio-10" class="radio" value="Group Session" x-model="location"/>
+          <label for="" class="ml-2 text-sm font-medium ">Group Session</label>
+      </div>
+
+      <div class="flex justify-center items-center">
+          <button class="btn btn-secondary mx-2" @click.prevent="step--, percentComplete = 80">Back</button>
+          <button class="btn btn-primary mx-2" @click.prevent="step++, percentComplete = 100">Next</button>
+        </div>
+
+    </form>
+</div>
+
+    <div x-show="step === 11">
+      <form x-on:submit.prevent class="mt-2 mb-18  space-y-4 rounded-lg p-8 shadow-2xl">
+          <div class="flex items-center">
+              <label for="" class="block ml-2 text-2xl font-bold text-center">
+                Confirm Information
+              </label>
+            </div>
+            <div>
+              <label for="">1. What type of pet it is?</label>
+              <p class="font-bold" x-text="type"></p>
+            </div>
+            <div>
+              <label for="">2. What breed is it?</label>
+              <p class="font-bold" x-text="breed"></p>
+            </div>
+            <div>
+              <label for="">3. How old is your pet?</label>
+              <p class="font-bold" x-text="age"></p>
+            </div>
+            <div>
+              <label for="">4. What is the size of your pet?</label>
+              <p class="font-bold" x-text="size"></p>
+            </div>
+            <div>
+              <label for="">5. Is your pet vaccinated?</label>
+              <p class="font-bold" x-text="vaccinated"></p>
+            </div>
+            <div>
+              <label for="">6. Which pet training course are you interested in?</label>
+              <p class="font-bold" x-text="course.join(', ')"></p>
+            </div>
+            <div>
+              <label for="">7. Anything else the trainer will need to know?(optional) </label>
+              <p class="font-bold" x-text="info"></p>
+            </div>
+            <div>
+              <label for="">8. Pick the sessions you are available for. </label>
+              <p class="font-bold" x-text="sessions"></p>
+            </div>
+            <div>
+              <label for="">9. Pick a preferred month to start training. </label>
+              <p class="font-bold" x-text="`Selected date and time: ${date} ${time}`"></p>
+            </div>
+            <div>
+              <label for="">10. Which location would you prefer to train? </label>
+              <p class="font-bold" x-text="location"></p>
+            </div>
           <div class="flex justify-center items-center">
               <button class="btn btn-primary mx-2">Confirm</button>
             </div>

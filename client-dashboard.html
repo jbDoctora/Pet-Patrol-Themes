@@ -1,117 +1,74 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="garden">
+<html lang="en" data-theme="light">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.46.1/dist/full.css" rel="stylesheet" type="text/css" />
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://kit.fontawesome.com/ceb9fb7eba.js" crossorigin="anonymous"></script>
-<!-- GOOGLE FONT -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
-<link rel="icon" type="image/x-icon" href="images/apple-touch-icon-72x72.png" />
-<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.46.1/dist/full.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/ceb9fb7eba.js" crossorigin="anonymous"></script>
+  <!-- GOOGLE FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="images/apple-touch-icon-72x72.png" />
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-    <title>Pet Patrol | Find Pet trainers</title>
+  <title>Pet Patrol | Find Pet trainers</title>
 </head>
+
 <body>
+  <!-- NavBar -->
 
-<!-- NavBar -->
-    <div class="navbar">
-      <div class="flex-1 bg-fixed">
-        <img style="aspect-ratio: 3/2; object-fit: contain; mix-blend-mode: color-burn; margin-left: 4px; margin-right: 6px;" src="images/apple-touch-icon-76x76.png"><span class="font-semibold text-xl tracking-wide" style="font-family: 'Fredoka One', cursive;">PET PATROL</span></img>
-      </div>
-      <div>
-        <div class="dropdown dropdown-end" x-data="{open : false}">
-          <div class="indicator">
-            <span class="indicator-item badge badge-primary">99+</span>
-            <button tabindex="0" class="fa-solid fa-bell fa-xl m-4" @click="open = !open"></button>
-          </div>
-          <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52" x-show="open" @click.outside="open = false">
-            <li><a href="">jagssdjagsdkjas</a></li>
-            <li><a href="">iuywieyiuqwyeiuqw</a></li>
-          </ul>
-        </div>
-
-            <div class="avatar dropdown dropdown-bottom dropdown-end dropdown-hover">
-                <div tabindex="0" class="w-9 h-9 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mr-4 ml-8">
-                  <img src="https://placeimg.com/192/192/people" />
-                </div>
-                <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                    <li><a href="">Logout</a></li>
-                </ul>
-              </div>
-              <div class="mr-3">
-                <p class="font-medium">Hi, Juan</p>
-              </div>
-        </div>
-        <!-- <button class="btn btn-outline mx-1 "><a href="login.html">Sign in</a></button>
-        <button class="btn btn-primary mx-2"><a href="registration.html"> Sign up</a></button> -->
-    </div >
-
-<main>
-  <div class="flex flex-row">
-  <div class="drawer drawer-mobile h-screen">
-    <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-    <div class="drawer-content flex flex-col items-start justify-start">
-
-      <label for="my-drawer-2" class="btn btn-neutral-content drawer-button lg:hidden"><svg class="w-6 h-6 text-gray-600" viewBox="0 0 24 24">
-        <path fill="currentColor" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"/>
-      </svg></label>
-      <div class="w-full h-96"><iframe name="myFrame" src="matched-trainers.html" frameborder="0" class="w-full aspect-video"></iframe></div>
-    </div> 
-    <div class="drawer-side text-base font-semibold">
-      <label for="my-drawer-2" class="drawer-overlay"></label> 
-      <ul class="menu p-4 w-60 bg-neutral-content text-base-content">
-        <!-- <li>
-          <label class="btn btn-outline btn-circle swap swap-rotate">
- 
-            <input type="checkbox" />
-
-            <svg class="swap-off fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z"/></svg>
-
-            <svg class="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49"/></svg>
-            
-          </label>
-        </li> -->
-        <li class="m-4 font-bold text-center text-extrabold">My Dashboard</li>
-        <li class="m-4"><a href="registration.html" target="myFrame"><i class="fa-solid fa-book"></i>My Request</a></li>
-        <li class="m-4"><a href="trainer-dashboard.html" target="myFrame"><i class="fa-solid fa-paw"></i>Pet Profile</a></li>
-        <li class="m-4"><a><i class="fa-solid fa-user"></i>My Profile</a></li>
-        <li class="m-4"><a><i class="fa-solid fa-gears"></i>Privacy Settings</a></li>
-      </ul>
-
+  <div x-data="{ sidebarOpen: false }" class="flex overflow-x-hidden h-screen">
+    <aside class="flex-shrink-0 w-64 flex flex-col border-r transition-all duration-300"
+      :class="{ '-ml-64': !sidebarOpen }">
+      <div class="h-64 bg-gray-900"></div>
+      <nav class="flex-1 flex flex-col bg-white">
+        <a href="#" class="p-2">Nav Link 1</a>
+        <a href="#" class="p-2">Nav Link 2</a>
+        <a href="#" class="p-2">Nav Link 3</a>
+      </nav>
+    </aside>
+    <div class="flex-1">
+      <header class="flex items-center p-4 text-semibold text-gray-100 bg-gray-900">
+        <button class="p-1 mr-4" @click="sidebarOpen = !sidebarOpen">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+        Header
+      </header>
+      <main>
+        <h1>Hello bitches</h1>
+      </main>
     </div>
   </div>
-  
-</div>
-  
-</main>
 
-<!-- FOOTER -->
- <footer class="footer p-10 bg-neutral text-neutral-content">
-  <div>
-    <span class="footer-title">Services</span> 
-    <a class="link link-hover">Branding</a>
-    <a class="link link-hover">Design</a>
-    <a class="link link-hover">Marketing</a>
-    <a class="link link-hover">Advertisement</a>
-  </div> 
-  <div>
-    <span class="footer-title">Company</span> 
-    <a class="link link-hover">About us</a>
-    <a class="link link-hover">Contact</a>
-    <a class="link link-hover">Jobs</a>
-    <a class="link link-hover">Press kit</a>
-  </div> 
-  <div>
-    <span class="footer-title">Legal</span> 
-    <a class="link link-hover">Terms of use</a>
-    <a class="link link-hover">Privacy policy</a>
-    <a class="link link-hover">Cookie policy</a>
-  </div>
-</footer>
+  <!-- FOOTER -->
+  <footer class="footer p-10 bg-neutral text-neutral-content">
+    <div>
+      <span class="footer-title">Services</span>
+      <a class="link link-hover">Branding</a>
+      <a class="link link-hover">Design</a>
+      <a class="link link-hover">Marketing</a>
+      <a class="link link-hover">Advertisement</a>
+    </div>
+    <div>
+      <span class="footer-title">Company</span>
+      <a class="link link-hover">About us</a>
+      <a class="link link-hover">Contact</a>
+      <a class="link link-hover">Jobs</a>
+      <a class="link link-hover">Press kit</a>
+    </div>
+    <div>
+      <span class="footer-title">Legal</span>
+      <a class="link link-hover">Terms of use</a>
+      <a class="link link-hover">Privacy policy</a>
+      <a class="link link-hover">Cookie policy</a>
+    </div>
+  </footer>
 </body>
+
 </html>
